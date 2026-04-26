@@ -1,4 +1,7 @@
 import './style.css'
+import { inject, track } from '@vercel/analytics'
+
+inject()
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
@@ -258,6 +261,12 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Telegram Deep Link Logic (Optimized for VK and mobile browsers)
 document.querySelectorAll('a[href*="t.me"]').forEach((link) => {
   link.addEventListener('click', (e) => {
+    // Track conversion event
+    track('telegram_conversion', { 
+      link: link instanceof HTMLAnchorElement ? link.href : 'unknown',
+      text: link instanceof HTMLElement ? link.innerText : 'unknown'
+    });
+
     if (link instanceof HTMLAnchorElement && link.href.includes('t.me')) {
       const isVK = /VKWebview|VK_APP/i.test(navigator.userAgent);
       
