@@ -382,7 +382,9 @@ document.querySelectorAll('a[href*="t.me"]').forEach((link) => {
       
       // On VK, we prefer direct t.me link as tg:// is often blocked
       if (isVK) {
-        // Just let it follow the link normally, but ensure it opens in a way that can trigger the app
+        e.preventDefault();
+        // Принудительно открываем в новой вкладке/окне, чтобы VK WebView предложил переход во внешнее приложение
+        window.open(link.href, '_blank') || (window.location.href = link.href);
         return; 
       }
 
