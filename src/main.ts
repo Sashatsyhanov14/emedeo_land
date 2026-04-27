@@ -166,7 +166,114 @@ app.innerHTML = `
           </div>
           <h4 style="color: var(--accent-color); margin-bottom: 12px;">Умные устройства</h4>
           <p>Встраивание связи в счетчики, вендинг и системы безопасности по всему миру.</p>
+      </div>
+    </section>
+
+    <!-- TARIFFS SECTION -->
+    <section class="container" id="tariffs">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2 class="section-title" style="margin-bottom: 16px;">Популярные направления</h2>
+        <p class="hero-subtitle">Честные цены без скрытых платежей. Выбирай тариф под свои нужды.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        
+        <!-- Turkey -->
+        <div class="glass reveal" style="padding: 32px; display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <span style="font-size: 2.5rem;">🇹🇷</span>
+            <h3 style="font-size: 1.5rem; color: var(--accent-color); margin: 0;">Турция</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">1 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(7 дней)</span></span>
+              <span style="font-weight: 700; color: #00B050;">160 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">3 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">300 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">5 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">400 ₽</span>
+            </div>
+          </div>
+          <a href="${botLink}" class="btn-primary" style="width: 100%; padding: 14px 24px; font-size: 1rem;">Подключить</a>
         </div>
+
+        <!-- Europe & UK -->
+        <div class="glass reveal" style="padding: 32px; display: flex; flex-direction: column; position: relative; overflow: hidden; border: 2px solid var(--accent-color);">
+          <div style="position: absolute; top: 20px; right: -35px; background: var(--accent-color); color: white; padding: 4px 40px; transform: rotate(45deg); font-size: 0.8rem; font-weight: 700; font-family: var(--font-heading); box-shadow: 0 2px 4px rgba(0,0,0,0.2);">ХИТ</div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <span style="font-size: 2.5rem;">🇪🇺</span>
+            <h3 style="font-size: 1.5rem; color: var(--accent-color); margin: 0;">Европа + UK</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">1 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(7 дней)</span></span>
+              <span style="font-weight: 700; color: #00B050;">220 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">2 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">300 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">3 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">350 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">5 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">400 ₽</span>
+            </div>
+          </div>
+          <a href="${botLink}" class="btn-primary" style="width: 100%; padding: 14px 24px; font-size: 1rem;">Подключить</a>
+        </div>
+
+        <!-- China -->
+        <div class="glass reveal" style="padding: 32px; display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <span style="font-size: 2.5rem;">🇨🇳</span>
+            <h3 style="font-size: 1.5rem; color: var(--accent-color); margin: 0;">Китай</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">1 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(7 дней)</span></span>
+              <span style="font-weight: 700; color: #00B050;">160 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">3 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">320 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">5 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">500 ₽</span>
+            </div>
+          </div>
+          <a href="${botLink}" class="btn-primary" style="width: 100%; padding: 14px 24px; font-size: 1rem;">Подключить</a>
+        </div>
+
+        <!-- Russia -->
+        <div class="glass reveal" style="padding: 32px; display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <span style="font-size: 2.5rem;">🇷🇺</span>
+            <h3 style="font-size: 1.5rem; color: var(--accent-color); margin: 0;">Россия</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">1 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(7 дней)</span></span>
+              <span style="font-weight: 700; color: #00B050;">250 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">3 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">600 ₽</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--panel-border); padding-bottom: 8px;">
+              <span style="font-weight: 600;">5 GB <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.9rem;">(Месяц)</span></span>
+              <span style="font-weight: 700; color: #00B050;">1000 ₽</span>
+            </div>
+          </div>
+          <a href="${botLink}" class="btn-primary" style="width: 100%; padding: 14px 24px; font-size: 1rem;">Подключить</a>
+        </div>
+
       </div>
     </section>
 
