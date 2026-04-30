@@ -353,6 +353,24 @@ app.innerHTML = `
   </footer>
 `
 
+// Inject VK Bypass Modal HTML
+app.insertAdjacentHTML('beforeend', `
+  <div id="vk-bypass-modal" class="vk-modal-overlay">
+    <div class="vk-modal-content">
+      <h3 class="vk-modal-title">Переход в Telegram</h3>
+      <p class="vk-modal-text">ВКонтакте блокирует прямые переходы в Telegram. Нажмите кнопку ниже, чтобы скопировать ссылку, а затем откройте её в браузере (Chrome/Safari) или отправьте в "Избранное" в самом Telegram.</p>
+      <button id="vk-copy-link-btn" class="btn-primary" style="width: 100%; margin-bottom: 12px;">
+        <svg style="width: 20px; height: 20px; margin-right: 8px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Скопировать ссылку
+      </button>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
+        или нажмите на три точки (⋮) в правом верхнем углу экрана и выберите «Открыть в браузере».
+      </p>
+      <button id="vk-close-modal-btn" class="btn-secondary">Понятно</button>
+    </div>
+  </div>
+`);
+
 // Intersection Observer for reveal animations
 const observerOptions = {
   threshold: 0.1
@@ -368,6 +386,42 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// VK Bypass Logic initialization
+const vkModal = document.getElementById('vk-bypass-modal');
+const vkCopyBtn = document.getElementById('vk-copy-link-btn');
+const vkCloseBtn = document.getElementById('vk-close-modal-btn');
+let currentVkLink = '';
+
+if (vkCloseBtn && vkModal) {
+  vkCloseBtn.addEventListener('click', () => {
+    vkModal.classList.remove('active');
+  });
+}
+
+if (vkCopyBtn && vkModal) {
+  vkCopyBtn.addEventListener('click', async () => {
+    if (currentVkLink) {
+      const originalHTML = vkCopyBtn.innerHTML;
+      try {
+        await navigator.clipboard.writeText(currentVkLink);
+        vkCopyBtn.innerHTML = '✅ Скопировано!';
+      } catch (err) {
+        // Fallback for older environments
+        const tempInput = document.createElement('input');
+        tempInput.value = currentVkLink;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        vkCopyBtn.innerHTML = '✅ Скопировано!';
+      }
+      setTimeout(() => {
+        vkCopyBtn.innerHTML = originalHTML;
+      }, 2000);
+    }
+  });
+}
+
 // Telegram Deep Link Logic (Optimized for VK and mobile browsers)
 document.querySelectorAll('a[href*="t.me"]').forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -380,11 +434,11 @@ document.querySelectorAll('a[href*="t.me"]').forEach((link) => {
     if (link instanceof HTMLAnchorElement && link.href.includes('t.me')) {
       const isVK = /VKWebview|VK_APP/i.test(navigator.userAgent);
       
-      // On VK, we prefer direct t.me link as tg:// is often blocked
-      if (isVK) {
+      // On VK, display the manual bypass modal because tg:// and direct window.open are blocked
+      if (isVK && vkModal) {
         e.preventDefault();
-        // Принудительно открываем в новой вкладке/окне, чтобы VK WebView предложил переход во внешнее приложение
-        window.open(link.href, '_blank') || (window.location.href = link.href);
+        currentVkLink = link.href;
+        vkModal.classList.add('active');
         return; 
       }
 
